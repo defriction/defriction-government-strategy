@@ -635,7 +635,11 @@ Gastos ya hechos por socios para defriction. Se registran en acta constitutiva /
 Negociar con abogado, no saltarse:
 
 1. **Good leaver / bad leaver.** Si sales bien (renuncia avisada, salud, mutuo acuerdo): conservas lo vested. Si sales mal (competencia, fraude, abandono): lo vested se recompra a valor nominal.
-2. **Derecho de preferencia (right of first refusal).** Si alguien quiere vender, primero ofrece a los demás socios al mismo precio. Evita que un tercero random entre al cap table.
+2. **Derecho de preferencia (right of first refusal) — venta siempre intra-equipo primero.** Si alguien quiere vender sus acciones:
+   - **Paso 1:** ofrecer a los demás socios actuales, en proporción a su % actual.
+   - **Paso 2:** si nadie del equipo compra en 30 días, recién ahí se puede ofrecer a externos.
+   - **Paso 3:** si se ofrece a externo, el precio no puede ser menor al ofrecido al equipo (si el externo ofrece más, se reofrece al equipo al nuevo precio antes de cerrar).
+   - Evita que un tercero random entre al cap table sin que el equipo haya tenido chance de comprar primero.
 3. **Drag-along.** Si holders del >70% aprueban venta de la empresa, todos arrastran. Evita que minoritario bloquee exit.
 4. **Tag-along.** Si un founder vende a tercero, minoritarios pueden pegarse a la venta al mismo precio. Protege a Juan Camilo.
 5. **Vesting acelerado en adquisición (single vs double trigger).** Recomendado **double trigger**: vesting acelera solo si te adquieren Y te despiden. Single trigger (acelera con solo adquisición) asusta compradores.
@@ -645,23 +649,24 @@ Negociar con abogado, no saltarse:
 
 ### 9.4 Decisiones y poder de voto
 
-Con 26/26/26/12, escenarios:
+Con 37/27/25/6, escenarios:
 
 | Escenario | Votos | Resultado |
 |---|---|---|
-| 3 founders de acuerdo, JC en contra | 78% vs 12% | Pasa cualquier decisión |
-| 2 founders de acuerdo, 1 en contra + JC | 52% vs 38% | Pasa mayoría simple, no calificada >70% |
-| 2 founders vs 2 (split) | 50/50 o 52/48 | **Deadlock** — ver abajo |
+| Santiago + Sneider de acuerdo, Julian + JC en contra | 64% vs 31% | Pasa cualquier mayoría simple o calificada (>50%, >70%) |
+| Santiago + Julian de acuerdo, Sneider + JC en contra | 62% vs 33% | Pasa mayoría simple (< 70% calificada si aplica) |
+| Sneider + Julian de acuerdo, Santiago + JC en contra | 52% vs 43% | Pasa mayoría simple, no calificada >70% |
+| 2 vs 2 con combinaciones de minorías | Depende | **Deadlock** si se requiere >70% — ver abajo |
 
 **Anti-deadlock:** decisiones operativas las resuelve Santiago (CEO/PO). Decisiones estratégicas split 50/50 van a mediador externo (definir nombre en el acuerdo) o voto de calidad de Santiago como tie-breaker. Elegir uno y dejarlo escrito.
 
-**Recomendación:** considerar que Santiago tenga 1 voto extra simbólico o acción con voto múltiple como CEO. Evita deadlocks sin cambiar económico. Alternativa: mantener 26/26/26 económico pero acuerdo que Santiago decide empates operativos.
+**Recomendación:** considerar que Santiago tenga 1 voto extra simbólico o acción con voto múltiple como CEO. Evita deadlocks sin cambiar económico. Alternativa: mantener % actual pero acuerdo que Santiago decide empates operativos.
 
 ### 9.5 Qué NO hacer
 
-- **No repartir 25/25/25/25.** "Equitativo" ≠ "igual" cuando riesgo y tiempo invertido difieren. Resentimiento futuro garantizado.
+- **No repartir equitativo por igual.** "Equitativo" ≠ "igual" cuando riesgo, tiempo invertido y rol difieren. El cap table de 37/27/25/6 reconoce diferencias reales — respetarlo.
 - **No saltarse vesting por "confianza".** La confianza de hoy no protege del conflicto de mañana. Vesting ES el mecanismo de confianza.
-- **No dejar a Juan Camilo sin equity real.** Un early dev con 2% es empleado disfrazado. 12% lo alinea como dueño.
+- **No dejar a Juan Camilo sin equity real.** Un early dev con 2% es empleado disfrazado. 6% lo alinea como dueño.
 - **No firmar sin IP assignment.** Sin eso, el código es de cada quien y la empresa es un cascarón.
 - **No ignorar el tema fiscal.** En Colombia, acciones en S.A.S. a valor nominal hoy vs. valor comercial futuro tiene implicaciones en renta. Hablar con contador antes de escriturar.
 - **No hacer side letters verbales.** Todo por escrito en el acuerdo de accionistas o no existe.
@@ -676,6 +681,30 @@ Con 26/26/26/12, escenarios:
 6. Guardar todo en Notion + carpeta legal en Drive compartida.
 
 **Costo estimado:** $3-8M COP abogado + contador para dejar esto bien. No escatimar — un pleito societario cuesta 10x más.
+
+### 9.7 Reglas de Convivencia — para que la amistad no se rompa por la empresa
+
+El equity y el dinero son what brings us together y what breaks us apart. Estas reglas existen para que defriction fortalezca las relaciones, no las quiebre.
+
+1. **Amistad > empresa.** Si una decisión accionaria pone en riesgo una amistad, se detiene todo y se habla en persona antes de seguir. Las acciones se recuperan, las amistades rotas no.
+
+2. **Sin secretos financieros.** Todo número es transparente para todos los socios: ingresos, costos, deudas, salarios, comisiones. Si alguien pide ver un número, se muestra sin filtro ni dilación. El secreto financiero mata la confianza más rápido que cualquier error.
+
+3. **Mismas reglas para todos.** El vesting, los gastos, la venta de acciones, el código de conducta aplican igual a founders y no-founders. Nadie está por encima de las reglas del equipo.
+
+4. **Conflicto de interés se declara, no se oculta.** Si un socio tiene un proyecto afuera, un cliente potencial que también le interesa a defriction, o una relación personal que afecta una decisión — se declara en el grupo antes de actuar.
+
+5. **Separar persona y posición.** En la weekly se discuten ideas, no personas. "Esa decisión no me gusta" ≠ "esa persona se equivocó". Feedback técnico y comercial sin ataques personales. Si alguien se siente atacado, derecho a pedir pausa y retomar al día siguiente async.
+
+6. **Derecho a disentir sin represalias.** Cualquier socio puede votar en contra de una decisión sin miedo a represalias, marginación o trato diferente. Discrepar es parte del juego, no una falta de lealtad.
+
+7. **No mezclar deudas personales con la empresa.** Préstamos entre socios, avales personales, o deudas externas no se mezclan con el cap table ni con las finanzas de defriction. Si un socio necesita plata personal, se busca por fuera de la empresa.
+
+8. **Salida limpia > salida forzada.** Si alguien quiere salir, el equipo facilita la salida: le compra sus acciones (con derecho de preferencia §9.3.2), le da referencias, lo ayuda con la transición. Nadie se tiene que ir enojado. Una salida limpia deja la puerta abierta para volver como consejero, aliado o cliente.
+
+9. **Revisión de convivencia cada 6 meses.** En la weekly del último mes de cada semestre, 15 min extra: ¿cómo estamos como equipo? ¿Algo de esta sección se está incumpliendo? ¿Alguien tiene algo que no está diciendo? No se salta.
+
+10. **Si esto falla, mediación antes que abogados.** Si un conflicto no se resuelve internamente en 2 semanas, se busca un mediador externo neutral antes de cualquier acción legal. Que un abogado revise el acuerdo de accionistas es preventivo. Que un abogado resuelva una pelea entre socios es el fracaso del acuerdo.
 
 ---
 
