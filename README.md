@@ -573,17 +573,19 @@ Estructura societaria como Sociedad por Acciones Simplificada (S.A.S.) colombian
 
 | Persona | Rol | % acciones | Tipo | Justificación |
 |---|---|---|---|---|
-| Santiago | Founder, PO + vibe coder | 26% | Acciones ordinarias, vesting | Founder. Cara al cliente, roadmap, revenue |
-| Sneider | Founder, tech lead + infra | 26% | Acciones ordinarias, vesting | Founder. Arquitectura, producto flagship, DevOps |
-| Julian | Founder, fullstack | 26% | Acciones ordinarias, vesting | Founder. Features core, backup DevOps |
-| Juan Camilo | Dev temprano (2 meses) | 12% | Acciones ordinarias, vesting | No-founder pero early. Equity real, no solo sueldo |
-| **ESOP** (pool futuros empleados) | — | **10%** | Reservado | Hires futuros: CSM formal, dev senior, ventas |
+| Santiago | Founder, PO + vibe coder | 37% | Acciones ordinarias, vesting | Founder. Cara al cliente, roadmap, revenue. Mayor peso por gestión comercial y captación de clientes |
+| Sneider | Founder, tech lead + infra | 27% | Acciones ordinarias, vesting | Founder. Arquitectura, producto flagship, DevOps |
+| Julian | Founder, fullstack | 25% | Acciones ordinarias, vesting | Founder. Features core, backup DevOps |
+| Juan Camilo | Dev temprano | 6% | Acciones ordinarias, vesting | No-founder pero early. Equity real, no solo sueldo |
+| **ESOP** (pool futuros empleados) | — | **5%** | Reservado | Hires futuros: CSM formal, dev senior, ventas |
 | **Total** | | **100%** | | |
 
 **Razonamiento:**
-- **Founders iguales (26% c/u):** asume aporte equivalente hasta hoy (tiempo, idea, capital de trabajo, riesgo). Los aportes en dinero hasta la fecha (§9.1.1) se registran en acta pero NO modifican el cap table — diferencias son menores y se compensan con trabajo desigual no medido.
-- **Juan Camilo 12%:** entró cuando el riesgo ya estaba parcialmente mitigado (producto existe, clientes existen). Más que un empleado normal (0.5-2%), menos que founder. Refleja: early enough para equity significativo, late enough para no igualar founders.
-- **ESOP 10%:** estándar industria 10-15%. 10% alcanza para 2-3 hires clave (CSM formal, dev senior, growth). Si crece mucho antes de Serie A, se amplía diluyendo parejo.
+- **Santiago 37%:** mayor peso por su rol como PO cara al cliente, gestión comercial y captación de clientes. Reconoce el trabajo de tracción comercial que no está medido en horas de código.
+- **Sneider 27%:** founder técnico senior, autoridad técnica final. Su aporte en arquitectura e infraestructura es crítico para la empresa.
+- **Julian 25%:** founder fullstack, features core y backup de infra. Aportación técnica continua.
+- **Juan Camilo 6%:** entró cuando el riesgo ya estaba parcialmente mitigado (producto existe, clientes existen). Equity menor que founders pero significativo para alinearlo como dueño.
+- **ESOP 5%:** reservado para 1-2 hires clave futuros. Si la empresa crece, se puede ampliar diluyendo parejo.
 
 ### 9.1.1 Aportes en dinero a la fecha (registro, no ajusta equity)
 
