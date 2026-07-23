@@ -515,6 +515,56 @@ Checklist en `docs/ONBOARDING.md`:
 
 ---
 
+## 8. Comisiones por Referidos
+
+Política para miembros del equipo y externos que refieran clientes a defriction. Aprobada por acuerdo del equipo — se revisa cada 6 meses o cuando el modelo de negocio cambie significativamente.
+
+### 8.1 Esquema escalonado por tipo de cliente
+
+| Tipo de cliente | Comisión | Tope máximo |
+|---|---|---|
+| Automatización custom < $2,000 USD (< $8.5M COP) | 15% flat | $300 USD (~$1.275M COP) |
+| Automatización custom $2,000-$10,000 USD ($8.5M-$42.5M COP) | 10% flat | $1,000 USD (~$4.25M COP) |
+| Proyecto grande > $10,000 USD (> $42.5M COP) | 7% flat | $3,000 USD (~$12.75M COP) |
+| Cliente SaaS recurrente (Sinnet, bots) | 10% × primeros 12 meses | $2,000 USD lifetime (~$8.5M COP) |
+
+**TRM referencia:** $4,250 COP/USD.
+
+### 8.2 Comisión diferencial por referidor
+
+| Quién refiere | Comisión | Nota |
+|---|---|---|
+| Socio fundador | **5%** (o mitad del porcentaje escalonado si es menor) | Ya tiene equity en la empresa |
+| Miembro no-fundador (Juan Camilo, CSM) | **10%** (o el porcentaje escalonado completo si es menor) | Menos equity, mayor incentivo |
+| Externo (freelance, otra agencia, conocido) | **10-15%** | Negociable caso a caso |
+
+**Regla:** el porcentaje diferencial remplaza al escalonado cuando es menor. Ej: un socio fundador refiere un proyecto de $5,000 USD. El escalonado da 10% ($500), el diferencial da 5% ($250) — se paga el menor, porque el socio ya es dueño.
+
+### 8.3 Reglas operativas
+
+1. **Registro de lead.** Quien refiere debe registrar el lead en Slack `#clientes` o Notion antes del primer contacto formal. Sin registro no hay comisión.
+
+2. **Cliente existente.** Si el lead ya estaba en el pipeline o es cliente previo de defriction, la comisión no aplica.
+
+3. **Cliente cruzado.** Si dos personas refieren al mismo cliente, la comisión se divide 50/50 entre quienes lo registraron.
+
+4. **Pago contra cobro.** La comisión se paga cuando el cliente paga, no cuando se firma. Si el cliente no paga, no hay comisión.
+
+5. **Exit.** Si quien refiere se va de defriction, las comisiones pendientes se pagan hasta el final del período acordado (máximo 12 meses desde el último pago del cliente referido). Comisiones no devengadas al momento de la salida se pierden.
+
+6. **Periodicidad.** Las comisiones se liquidan mensualmente, dentro de los primeros 5 días hábiles del mes siguiente. Pago vía transferencia o por el medio que acuerden los socios.
+
+### 8.4 Exclusiones
+
+- **Autoreferidos.** No hay comisión por traer tu propio proyecto como socio. Eso es trabajo, no referido.
+- **Clientes existentes antes de esta política.** Se respeta el pipeline previo a la fecha de aprobación. Un lead en conversación antes de esta política no genera comisión.
+
+### 8.5 Vigencia
+
+Esta política rige desde su aprobación por el equipo. Se revisa cada 6 meses o cuando el modelo de negocio cambie. Cambios requieren aprobación de Santiago (pricing/contratos según RACI §1.7) + mayoría del equipo.
+
+---
+
 ## 9. Distribución Accionaria (S.A.S.)
 
 Estructura societaria como Sociedad por Acciones Simplificada (S.A.S.) colombiana. Propuesta base — ajustar con abogado antes de firmar.
