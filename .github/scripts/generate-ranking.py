@@ -109,9 +109,48 @@ def generate_bar_svg(items, title, value_key, width=650):
     return svg
 
 
+# Manual attribution of Claude Code commits (90% Santiago, 5% Julian, 5% Sneider)
+CLAUDE_ATTRIBUTION = {
+    "santiagorodriguezg": 0.90,   # Santiago
+    "julianfrancodev":   0.05,   # Julian
+    "christopher-perezm": 0.05,  # Sneider
+}
+
+
+def redistribute_claude(claude_stats):
+    """Redistribute Claude commits/lines to humans per CLAUDE_ATTRIBUTION."""
+    result = {}
+    total_commits = claude_stats["commits"]
+    total_adds = claude_stats["additions"]
+    total_dels = claude_stats["deletions"]
+    claude_repos = claude_stats["repos"]
+
+    for login, pct in CLAUDE_ATTRIBUTION.items():
+        result[login] = {
+            "commits_ai": int(total_commits * pct),
+            "additions_ai": int(total_adds * pct),
+            "deletions_ai": int(total_dels * pct),
+            "repos_ai": claude_repos,
+        }
+
+    # Assign any rounding remainder to Santiago
+    assigned_commits = sum(v["commits_ai"] for v in result.values())
+    assigned_adds = sum(v["additions_ai"] for v in result.values())
+    assigned_dels = sum(v["deletions_ai"] for v in result.values())
+    if assigned_commits < total_commits:
+        result["santiagorodriguezg"]["commits_ai"] += total_commits - assigned_commits
+    if assigned_adds < total_adds:
+        result["santiagorodriguezg"]["additions_ai"] += total_adds - assigned_adds
+    if assigned_dels < total_dels:
+        result["santiagorodriguezg"]["deletions_ai"] += total_dels - assigned_dels
+
+    return result
+
+
 def main():
     aggregated = {}
     repo_ok = []
+    claude_agg = {"commits": 0, "additions": 0, "deletions": 0, "repos": set()}
 
     # Phase 1: stats/contributors — separate human + claude data
     for repo in REPOS:
@@ -121,101 +160,121 @@ def main():
         repo_ok.append(repo)
         for entry in data:
             login = entry.get("author", {}).get("login", "unknown")
+            weeks = entry.get("weeks", [])
+            commits = entry.get("total", 0)
+            adds = sum(w.get("a", 0) for w in weeks)
+            dels = sum(w.get("d", 0) for w in weeks)
+
             if login in BOTS:
                 continue
-            state_key = "CLAUDE_CODE" if is_claude(entry.get("author", {})) else login
-            if state_key not in aggregated:
-                aggregated[state_key] = {
-                    "commits": 0, "additions": 0, "deletions": 0,
-                    "repos": set(), "is_ai": is_claude(entry.get("author", {})),
+
+            if is_claude(entry.get("author", {})):
+                claude_agg["commits"] += commits
+                claude_agg["additions"] += adds
+                claude_agg["deletions"] += dels
+                claude_agg["repos"].add(repo)
+            else:
+                if login not in aggregated:
+                    aggregated[login] = {
+                        "commits": 0, "commits_ai": 0,
+                        "additions": 0, "additions_ai": 0,
+                        "deletions": 0, "deletions_ai": 0,
+                        "repos": set(), "repos_ai": set(),
+                    }
+                aggregated[login]["commits"] += commits
+                aggregated[login]["additions"] += adds
+                aggregated[login]["deletions"] += dels
+                aggregated[login]["repos"].add(repo)
+
+    # Phase 2: redistribute Claude to humans
+    if claude_agg["commits"] > 0:
+        claude_redist = redistribute_claude(claude_agg)
+        for login, ai_st in claude_redist.items():
+            if login not in aggregated:
+                aggregated[login] = {
+                    "commits": 0, "commits_ai": 0,
+                    "additions": 0, "additions_ai": 0,
+                    "deletions": 0, "deletions_ai": 0,
+                    "repos": set(), "repos_ai": set(),
                 }
-            weeks = entry.get("weeks", [])
-            aggregated[state_key]["commits"] += entry.get("total", 0)
-            aggregated[state_key]["additions"] += sum(w.get("a", 0) for w in weeks)
-            aggregated[state_key]["deletions"] += sum(w.get("d", 0) for w in weeks)
-            aggregated[state_key]["repos"].add(repo)
+            aggregated[login]["commits_ai"] += ai_st["commits_ai"]
+            aggregated[login]["additions_ai"] += ai_st["additions_ai"]
+            aggregated[login]["deletions_ai"] += ai_st["deletions_ai"]
+            aggregated[login]["repos_ai"] |= ai_st["repos_ai"]
 
-    # Split: human row has commits_ai=0, claude row is all ai
+    # Build total = direct + AI
     for login, st in aggregated.items():
-        st["commits_ai"] = st["commits"] if st.get("is_ai") else 0
-        st["additions_ai"] = st["additions"] if st.get("is_ai") else 0
-        st["deletions_ai"] = st["deletions"] if st.get("is_ai") else 0
+        st["total_commits"] = st["commits"] + st["commits_ai"]
+        st["total_additions"] = st["additions"] + st["additions_ai"]
+        st["total_deletions"] = st["deletions"] + st["deletions_ai"]
+        st["all_repos"] = st["repos"] | st["repos_ai"]
 
-    # Sort: humans first by commits desc, then claude
-    humans = [(l, s) for l, s in aggregated.items() if not s.get("is_ai")]
-    claude_items = [(l, s) for l, s in aggregated.items() if s.get("is_ai")]
-
-    humans.sort(key=lambda x: x[1]["commits"], reverse=True)
-    ranking = humans + claude_items
+    ranking = sorted(aggregated.items(), key=lambda x: x[1]["total_commits"], reverse=True)
 
     # Labels
     for i, (login, st) in enumerate(ranking):
-        if st.get("is_ai"):
-            st["label"] = "🤖 Claude Code (IA)"
-        else:
-            label = chr(65 + i) if i < 26 else f"{i-25:X}"
-            st["label"] = f"Colaborador {label}"
+        label = chr(65 + i) if i < 26 else f"{i-25:X}"
+        st["label"] = f"Colaborador {label}"
 
-    max_commits = max((st["commits"] for _, st in ranking), default=1)
-    total_ai = sum(s["commits"] for _, s in claude_items)
-    total_human = sum(s["commits"] for _, s in humans)
-    total_commits_all = total_human + total_ai
-    pct_ai = total_ai * 100 // total_commits_all if total_commits_all > 0 else 0
+    max_commits = max((st["total_commits"] for _, st in ranking), default=1)
+    total_ai = claude_agg["commits"]
+    total_human = sum(s["commits"] for _, s in ranking)
+    total_all = total_human + total_ai
+    pct_ai = total_ai * 100 // total_all if total_all > 0 else 0
 
     today = date.today().isoformat()
 
-    # Charts
-    chart_items_commits = [(login, {**st, "commits_ai": st["commits_ai"]}) for login, st in ranking]
-    chart_items_adds = [(login, {**st, "additions_ai": st["additions_ai"]}) for login, st in ranking]
+    # Chart items with ai breakdown
+    chart_items = [(login, {
+        **st,
+        "commits": st["total_commits"], "commits_ai": st["commits_ai"],
+        "additions": st["total_additions"], "additions_ai": st["additions_ai"],
+    }) for login, st in ranking]
 
-    commits_svg = generate_bar_svg(chart_items_commits, "Commits totales", "commits")
-    adds_svg = generate_bar_svg(chart_items_adds, "Líneas agregadas totales", "additions")
+    commits_svg = generate_bar_svg(chart_items, "Commits totales (directos + IA)", "commits")
+    adds_svg = generate_bar_svg(chart_items, "Líneas agregadas totales", "additions")
 
     # Markdown
     lines = [
         f"# Ranking de Contribuciones — defriction org\n",
         f"Actualizado {today} · {len(repo_ok)} repos · GitHub API `stats/contributors`\n",
         "",
-        f"**Commits totales en la org:** {total_commits_all:,} · **Humanos:** {total_human:,} · **Claude Code (IA):** {total_ai:,} ({pct_ai}%)",
+        f"**Commits totales en la org:** {total_all:,} · **Directos:** {total_human:,} · **IA (Claude Code):** {total_ai:,} ({pct_ai}%)",
         "",
-        "> ⚠️ Los commits de Claude Code aparecen como fila separada porque el autor y committer del commit es `Claude <noreply@anthropic.com>`.",
-        "> Para atribuir estos commits a humanos individualmente, cada persona debe configurar su herramienta de IA con `git config user.name` y `git config user.email`.",
+        f"> ℹ️ Commits de Claude Code redistribuidos con heurística: 90% Santiago, 5% Julian, 5% Sneider.",
+        f"> El autor/committer real de estos commits es `Claude <noreply@anthropic.com>` — no atribuible desde git. Ajustable en `CLAUDE_ATTRIBUTION` del script.",
         "",
         "---\n",
         "## 📊 Commits\n",
-        "▮ = código directo · ▯ = asistido por IA (solo aplica a Claude Code como fila propia)\n",
+        "▮ Sólido = directos · ▯ Claro = asistidos por IA (Claude Code)\n",
         f'<div align="center">\n{commits_svg}\n</div>\n',
         "## 📈 Líneas agregadas\n",
+        "▮ Sólido = directos · ▯ Claro = asistidos por IA\n",
         f'<div align="center">\n{adds_svg}\n</div>\n',
         "## 📋 Tabla detallada\n",
-        "| # | Colaborador | Total | IA | Barra | +Líneas | -Líneas | Net | Repos |",
-        "|---|-----------|-------|----|-------|--------|--------|-----|-------|",
+        "| # | Colaborador | Total | Directos | IA | Barra | +Líneas | -Líneas | Net | Repos |",
+        "|---|-----------|-------|----------|----|-------|--------|--------|-----|-------|",
     ]
 
     for i, (login, st) in enumerate(ranking, 1):
-        t = st["commits"]
+        t = st["total_commits"]
+        d = st["commits"]
         ai = st["commits_ai"]
-        direct = t - ai
-        net = st["additions"] - st["deletions"]
+        net = st["total_additions"] - st["total_deletions"]
         net_fmt = f"+{net:,}" if net >= 0 else f"{net:,}"
-        n_repos = len(st["repos"])
-        c = COLORS[(i-1) % len(COLORS)]
-        svg_bar = stacked_bar_svg(direct, ai, max_commits, c)
-
-        if st.get("is_ai"):
-            col_display = f"🤖 Claude Code"
-        else:
-            col_display = f"**{st['label']}** — {login}"
+        n_repos = len(st["all_repos"])
+        c = COLORS[i % len(COLORS)]
+        svg_bar = stacked_bar_svg(d, ai, max_commits, c)
 
         lines.append(
-            f"| {i} | {col_display} | {t:,} | {ai:,} | {svg_bar} | {st['additions']:,} | {st['deletions']:,} | {net_fmt} | {n_repos} |"
+            f"| {i} | **{st['label']}** — {login} | {t:,} | {d:,} | {ai:,} | {svg_bar} | {st['total_additions']:,} | {st['total_deletions']:,} | {net_fmt} | {n_repos} |"
         )
 
     lines += ["", "## 🔍 Distribución por repo"]
     for login, st in ranking:
-        repo_list = ", ".join(r.split("/")[1] for r in sorted(st["repos"]) if "/" in r)
-        if st.get("is_ai"):
-            lines.append(f"- 🤖 **Claude Code** — {st['commits']} commits, {len(st['repos'])} repos: {repo_list}")
+        repo_list = ", ".join(r.split("/")[1] for r in sorted(st["all_repos"]) if "/" in r)
+        if st["commits_ai"] > 0:
+            lines.append(f"- **{st['label']}** ({login}) — {st['total_commits']} commits ({st['commits_ai']} IA), {len(st['all_repos'])} repos: {repo_list}")
         else:
             lines.append(f"- **{st['label']}** ({login}) — {st['commits']} commits, {len(st['repos'])} repos: {repo_list}")
 
