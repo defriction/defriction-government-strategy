@@ -1,64 +1,49 @@
 # Ranking de Contribuciones — defriction org
 
-Generado vía GitHub API `stats/contributors` sobre los 9 repos públicos/privados de la organización.
-Fecha: 2026-07-27.
+Anónimo · actualizado 2026-07-28 · fuente: API `stats/contributors` sobre 8 repos.
+
+Bots (claude, astrobot-houston, dependabot) excluidos.
 
 ---
 
-## Ranking por commits
+## Commits por colaborador
 
-| # | Usuario | Commits | +Líneas | -Líneas | Net | Repos |
-|---|--------|--------|--------|--------|-----|-------|
-| 1 | claude | 743 | 196,450 | 29,450 | +167,000 | 3 |
-| 2 | **julianfrancodev** | **452** | **102,445** | **24,735** | **+77,710** | **6** |
-| 3 | christopher-perezm | 254 | 244,506 | 14,791 | +229,715 | 3 |
-| 4 | santiagorodriguezg | 53 | 14,327 | 987 | +13,340 | 3 |
-| 5 | astrobot-houston | 1 | 5,204 | 0 | +5,204 | 1 |
-| 6 | juankmilo99 | 1 | 1 | 1 | 0 | 1 |
+<div align="center">
 
-## Notas
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="198" viewBox="0 0 600 198">
+  <rect width="100%" height="100%" fill="#0f172a" rx="8"/>
+  <text x="300" y="28" text-anchor="middle" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="16" font-weight="600">Commits por colaborador</text>
+  <text x="142" y="71" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13">Colaborador A</text>
+  <rect x="150" y="56" width="370" height="20" rx="4" fill="#3b82f6" opacity="0.9"/>
+  <text x="526" y="71" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="13" font-weight="600">446</text>
+  <text x="142" y="103" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13">Colaborador B</text>
+  <rect x="150" y="88" width="210" height="20" rx="4" fill="#8b5cf6" opacity="0.9"/>
+  <text x="366" y="103" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="13" font-weight="600">254</text>
+  <text x="142" y="135" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13">Colaborador C</text>
+  <rect x="150" y="120" width="43" height="20" rx="4" fill="#10b981" opacity="0.9"/>
+  <text x="199" y="135" fill="#10b981" font-family="system-ui,sans-serif" font-size="13" font-weight="600">53</text>
+  <text x="142" y="167" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13">Colaborador D</text>
+  <rect x="150" y="152" width="4" height="20" rx="4" fill="#f59e0b" opacity="0.9"/>
+  <text x="160" y="167" fill="#f59e0b" font-family="system-ui,sans-serif" font-size="13" font-weight="600">1</text>
+</svg>
 
-1. **claude** (743 commits, 3 repos) — commits hechos por Cursor / Claude Code, probablemente por Santiago o Sneider usando IA como autor del commit. No es persona humana pero aparece en el ranking de GitHub.
-2. **julianfrancodev** — toca 6 de 9 repos. El que más repos abarca.
-3. **christopher-perezm** — menos commits pero más densos (+244K líneas), consistente con scaffolding y generación inicial.
-4. **santiagorodriguezg** — 53 commits, coherente con rol de PO + vibe coder.
-5. **juankmilo99** — solo 1 commit registrado. Posiblemente commits locales no asociados al email de GitHub, o trabajo en ramas sin mergear a `main`.
+</div>
 
-## Repos analizados
+## Tabla de contribuciones
+| # | Colaborador | Commits | +Líneas | -Líneas | Net | Repos |
+|---|-----------|--------|--------|--------|-----|-------|
+| 1 | Colaborador A | 446 | 101,528 | 24,719 | +76,809 | 5 |
+| 2 | Colaborador B | 254 | 244,506 | 14,791 | +229,715 | 3 |
+| 3 | Colaborador C | 53 | 14,327 | 987 | +13,340 | 3 |
+| 4 | Colaborador D | 1 | 1 | 1 | +0 | 1 |
 
-1. defriction-landing
-2. tennis-tracker-bot-python
-3. expense-tracker-bot-python
-4. tennis-management-front-angular
-5. tennis-management-back-nestjs
-6. inventory-tracker-ia-billing-python
-7. bot-cobranzas-propiedades-horizontales
-8. financial-platform
-9. defriction-government-strategy
+## Repos alcanzados
 
-## Detalle por persona
-
-### julianfrancodev — 452 commits, +102,445 / -24,735, 6 repos
-
-- bot-cobranzas-propiedades-horizontales
-- defriction-government-strategy
-- defriction-landing
-- inventory-tracker-ia-billing-python
-- tennis-management-front-angular
-- tennis-tracker-bot-python
-
-### christopher-perezm — 254 commits, +244,506 / -14,791, 3 repos
-
-- expense-tracker-bot-python
-- financial-platform
-- tennis-management-back-nestjs
-
-### santiagorodriguezg — 53 commits, +14,327 / -987, 3 repos
-
-- defriction-landing
-- tennis-management-back-nestjs
-- tennis-management-front-angular
-
-### juankmilo99 — 1 commit, +1 / -1, 1 repo
-
-- tennis-management-front-angular
+- defriction/defriction-landing
+- defriction/tennis-tracker-bot-python
+- defriction/expense-tracker-bot-python
+- defriction/tennis-management-front-angular
+- defriction/tennis-management-back-nestjs
+- defriction/inventory-tracker-ia-billing-python
+- defriction/bot-cobranzas-propiedades-horizontales
+- defriction/financial-platform
