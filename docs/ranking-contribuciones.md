@@ -1,9 +1,9 @@
 # Ranking de Contribuciones — defriction org
 
-Actualizado 2026-07-28 · 8 repos · GitHub API `stats/contributors`
+Actualizado 2026-07-28 · 9 repos · GitHub API `stats/contributors`
 
 
-**Commits totales en la org:** 1,497 · **Directos:** 754 · **IA (Claude Code):** 743 (49%)
+**Commits totales en la org:** 1,508 · **Directos:** 765 · **IA (Claude Code):** 743 (49%)
 
 > ℹ️ Commits de Claude Code redistribuidos con heurística: 90% Santiago, 5% Julian, 5% Sneider.
 > El autor/committer real de estos commits es `Claude <noreply@anthropic.com>` — no atribuible desde git. Ajustable en `CLAUDE_ATTRIBUTION` del script.
@@ -24,9 +24,9 @@ Actualizado 2026-07-28 · 8 repos · GitHub API `stats/contributors`
   <rect x="182" y="61" width="347" height="20" rx="4" fill="#3b82f6" opacity="0.35"/>
   <text x="538" y="76" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">722</text>
   <text x="147" y="108" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador B</text>
-  <rect x="155" y="93" width="231" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
-  <rect x="386" y="93" width="19" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
-  <text x="413" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">483</text>
+  <rect x="155" y="93" width="237" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
+  <rect x="392" y="93" width="19" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
+  <text x="419" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">494</text>
   <text x="147" y="140" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador C</text>
   <rect x="155" y="125" width="131" height="20" rx="4" fill="#10b981" opacity="0.85"/>
   <rect x="286" y="125" width="19" height="20" rx="4" fill="#10b981" opacity="0.35"/>
@@ -51,9 +51,9 @@ Actualizado 2026-07-28 · 8 repos · GitHub API `stats/contributors`
   <rect x="176" y="61" width="260" height="20" rx="4" fill="#3b82f6" opacity="0.35"/>
   <text x="444" y="76" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">191,133</text>
   <text x="147" y="108" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador B</text>
-  <rect x="155" y="93" width="149" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
-  <rect x="304" y="93" width="14" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
-  <text x="327" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">111,350</text>
+  <rect x="155" y="93" width="151" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
+  <rect x="306" y="93" width="14" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
+  <text x="329" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">112,901</text>
   <text x="147" y="140" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador C</text>
   <rect x="155" y="125" width="360" height="20" rx="4" fill="#10b981" opacity="0.85"/>
   <rect x="515" y="125" width="14" height="20" rx="4" fill="#10b981" opacity="0.35"/>
@@ -69,12 +69,12 @@ Actualizado 2026-07-28 · 8 repos · GitHub API `stats/contributors`
 | # | Colaborador | Total | Directos | IA | Barra | +Líneas | -Líneas | Net | Repos |
 |---|-----------|-------|----------|----|-------|--------|--------|-----|-------|
 | 1 | **Colaborador A** — santiagorodriguezg | 722 | 53 | 669 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="9" height="10" rx="0" fill="#8b5cf6" opacity="0.85"/><rect x="9" y="2" width="120" height="10" rx="0" fill="#8b5cf6" opacity="0.40"/></svg> | 191,133 | 27,493 | +163,640 | 3 |
-| 2 | **Colaborador B** — julianfrancodev | 483 | 446 | 37 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="80" height="10" rx="0" fill="#10b981" opacity="0.85"/><rect x="80" y="2" width="6" height="10" rx="0" fill="#10b981" opacity="0.40"/></svg> | 111,350 | 26,191 | +85,159 | 6 |
+| 2 | **Colaborador B** — julianfrancodev | 494 | 457 | 37 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="82" height="10" rx="0" fill="#10b981" opacity="0.85"/><rect x="82" y="2" width="6" height="10" rx="0" fill="#10b981" opacity="0.40"/></svg> | 112,901 | 26,435 | +86,466 | 7 |
 | 3 | **Colaborador C** — christopher-perezm | 291 | 254 | 37 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="45" height="10" rx="0" fill="#f59e0b" opacity="0.85"/><rect x="45" y="2" width="6" height="10" rx="0" fill="#f59e0b" opacity="0.40"/></svg> | 254,328 | 16,263 | +238,065 | 5 |
 | 4 | **Colaborador D** — juankmilo99 | 1 | 1 | 0 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="2" height="10" rx="0" fill="#ef4444" opacity="0.85"/><rect x="2" y="2" width="0" height="10" rx="0" fill="#ef4444" opacity="0.40"/></svg> | 1 | 1 | +0 | 1 |
 
 ## 🔍 Distribución por repo
 - **Colaborador A** (santiagorodriguezg) — 722 commits (669 IA), 3 repos: defriction-landing, tennis-management-back-nestjs, tennis-management-front-angular
-- **Colaborador B** (julianfrancodev) — 483 commits (37 IA), 6 repos: bot-cobranzas-propiedades-horizontales, defriction-landing, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular, tennis-tracker-bot-python
+- **Colaborador B** (julianfrancodev) — 494 commits (37 IA), 7 repos: bot-cobranzas-propiedades-horizontales, defriction-government-strategy, defriction-landing, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular, tennis-tracker-bot-python
 - **Colaborador C** (christopher-perezm) — 291 commits (37 IA), 5 repos: defriction-landing, expense-tracker-bot-python, financial-platform, tennis-management-back-nestjs, tennis-management-front-angular
 - **Colaborador D** (juankmilo99) — 1 commits, 1 repos: tennis-management-front-angular
