@@ -599,17 +599,17 @@ Gastos ya hechos por socios para defriction. Se registran en acta constitutiva /
 | **Santiago total** | | | | **~$1.715.000** |
 | Julian | Dominio defriction.org | — | $12 | ~$51.000 |
 | Julian | Gemini | — | $120 | ~$510.000 |
-| Julian | Certificados firma electrónica (firmapass.com) | $171.000 | — | $171.000 |
-| **Julian total** | | | | **~$732.000** |
+| Julian | Certificados firma electrónica (firmapass.com) | $271.000 | — | $271.000 |
+| **Julian total** | | | | **~$832.000** |
 | Sneider | Infra / herramientas | — | $90 | ~$382.000 |
-| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $382.000 | — | $382.000 |
-| **Sneider total** | | | | **~$764.000** |
+| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $282.000 | — | $282.000 |
+| **Sneider total** | | | | **~$664.000** |
 | Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 | — | $280.000 |
 | **Total aportado** | | | | **~$3.491.000 COP** |
 
 *TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma del acta.
 
-**Devolución de los certificados firmapass.com ($833.000):** cuando defriction tenga liquidez suficiente (caja 3+ meses de runway), estos $833.000 se devuelven a Juan Camilo ($280.000), Julian ($171.000) y Cristopher ($382.000) en calidad de devolución, con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
+**Devolución de los certificados firmapass.com ($833.000):** cuando defriction tenga liquidez suficiente (caja 3+ meses de runway), estos $833.000 se devuelven a Juan Camilo ($280.000), Julian ($271.000) y Cristopher ($282.000) en calidad de devolución, con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
 
 **Reglas futuras sobre gastos:**
 1. Gastos > $200.000 COP (o $50 USD) requieren aprobación previa de Santiago + 1 founder más antes de ejecutarse.

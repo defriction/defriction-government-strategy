@@ -49,16 +49,16 @@ Gastos ya realizados. Se registran en acta constitutiva como aportes de industri
 | Socio | Concepto | Total aprox COP |
 |---|---|---|
 | Santiago | VPS, Claude Code, Google Workspace | ~$1.715.000 |
-| Julian | Dominio defriction.org, Gemini | ~$732.000 |
-| Sneider | Infra / herramientas | ~$764.000 |
-| Julian | Certificados firma electrónica (firmapass.com) | $171.000 |
-| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $382.000 |
+| Julian | Dominio defriction.org, Gemini | ~$832.000 |
+| Sneider | Infra / herramientas | ~$664.000 |
+| Julian | Certificados firma electrónica (firmapass.com) | $271.000 |
+| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $282.000 |
 | Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 |
 | **Total** | | **~$3.491.000** |
 
 TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma.
 
-**Devolución certificados firmapass.com ($833.000):** con liquidez suficiente (caja 3+ meses de runway) se devuelven a Juan Camilo ($280.000), Julian ($171.000) y Cristopher ($382.000), con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
+**Devolución certificados firmapass.com ($833.000):** con liquidez suficiente (caja 3+ meses de runway) se devuelven a Juan Camilo ($280.000), Julian ($271.000) y Cristopher ($282.000), con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
 
 **Reglas de gastos futuros:**
 1. Gastos > $200.000 COP (o $50 USD) requieren aprobación de Santiago + 1 founder más.
