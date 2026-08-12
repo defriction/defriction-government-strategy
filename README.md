@@ -599,18 +599,22 @@ Gastos ya hechos por socios para defriction. Se registran en acta constitutiva /
 | **Santiago total** | | | | **~$1.715.000** |
 | Julian | Dominio defriction.org | — | $12 | ~$51.000 |
 | Julian | Gemini | — | $120 | ~$510.000 |
-| **Julian total** | | | | **~$561.000** |
+| Julian | Certificados firma electrónica (firmapass.com) | $171.000 | — | $171.000 |
+| **Julian total** | | | | **~$732.000** |
 | Sneider | Infra / herramientas | — | $90 | ~$382.000 |
-| **Sneider total** | | | | **~$382.000** |
-| Juan Camilo | — | — | — | $0 |
-| **Total aportado** | | | | **~$2.658.000 COP** |
+| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $382.000 | — | $382.000 |
+| **Sneider total** | | | | **~$764.000** |
+| Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 | — | $280.000 |
+| **Total aportado** | | | | **~$3.491.000 COP** |
 
 *TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma del acta.
+
+**Devolución de los certificados firmapass.com ($833.000):** cuando defriction tenga liquidez suficiente (caja 3+ meses de runway), estos $833.000 se devuelven a Juan Camilo ($280.000), Julian ($171.000) y Cristopher ($382.000) en calidad de devolución, con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
 
 **Reglas futuras sobre gastos:**
 1. Gastos > $200.000 COP (o $50 USD) requieren aprobación previa de Santiago + 1 founder más antes de ejecutarse.
 2. Todo gasto aprobado se registra en Notion (fecha, concepto, monto, quién pagó) — sin registro no hay reconocimiento.
-3. Cuando haya caja suficiente (definir: 3+ meses de runway), se reembolsan en orden cronológico de registro, sin intereses.
+3. Cuando haya caja suficiente (definir: 3+ meses de runway), se reembolsan en orden cronológico de registro, sin intereses — excepto los certificados de firma electrónica (firmapass.com), que se devuelven con interés 6% efectivo anual prorrateado por mes (~0,49% mensual) mientras tarde la devolución.
 4. Si algún socio quiere convertir aportes futuros significativos (> $5M COP) en equity extra, se negocia aparte y requiere unanimidad (§10).
 
 ### 9.2 Vesting — obligatorio para TODOS (founders incluidos)
@@ -641,7 +645,7 @@ Negociar con abogado, no saltarse:
    - **Paso 3:** si se ofrece a externo, el precio no puede ser menor al ofrecido al equipo (si el externo ofrece más, se reofrece al equipo al nuevo precio antes de cerrar).
    - Evita que un tercero random entre al cap table sin que el equipo haya tenido chance de comprar primero.
 3. **Drag-along.** Si holders del >70% aprueban venta de la empresa, todos arrastran. Evita que minoritario bloquee exit.
-4. **Tag-along.** Si un founder vende a tercero, minoritarios pueden pegarse a la venta al mismo precio. Protege a Juan Camilo.
+4. **Tag-along (derecho de acompañamiento).** Si un socio vende a un tercero, los demás pueden pegarse a la venta al mismo precio y condiciones: notificación escrita 30 días antes del cierre, prorrateo si el comprador no toma el 100%, y cierre condicionado a que el comprador compre también las acciones de quienes ejerzan. Protege a Juan Camilo y a cualquier minoritario de quedar con socio desconocido. Aplica después del ROFR (primero compra el equipo); si aplica drag-along la venta ya es total y es irrelevante. Excluye transferencias entre socios, filiales, ESOP, garantías y herencia; el bad leaver pierde el derecho. Registrarlo en estatutos para que sea oponible a terceros.
 5. **Vesting acelerado en adquisición (single vs double trigger).** Recomendado **double trigger**: vesting acelera solo si te adquieren Y te despiden. Single trigger (acelera con solo adquisición) asusta compradores.
 6. **IP assignment.** Todo lo que cada quien construyó antes y durante defriction es de la S.A.S., no personal. Firmar desde día 1 — sin esto no hay empresa vendible.
 7. **No competencia razonable.** 12 meses post-salida, misma industria geográfica. No más amplio (ilegal en Colombia si es excesivo).

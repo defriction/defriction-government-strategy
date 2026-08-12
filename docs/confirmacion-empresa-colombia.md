@@ -49,17 +49,21 @@ Gastos ya realizados. Se registran en acta constitutiva como aportes de industri
 | Socio | Concepto | Total aprox COP |
 |---|---|---|
 | Santiago | VPS, Claude Code, Google Workspace | ~$1.715.000 |
-| Julian | Dominio defriction.org, Gemini | ~$561.000 |
-| Sneider | Infra / herramientas | ~$382.000 |
-| Juan Camilo | — | $0 |
-| **Total** | | **~$2.658.000** |
+| Julian | Dominio defriction.org, Gemini | ~$732.000 |
+| Sneider | Infra / herramientas | ~$764.000 |
+| Julian | Certificados firma electrónica (firmapass.com) | $171.000 |
+| Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $382.000 |
+| Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 |
+| **Total** | | **~$3.491.000** |
 
 TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma.
+
+**Devolución certificados firmapass.com ($833.000):** con liquidez suficiente (caja 3+ meses de runway) se devuelven a Juan Camilo ($280.000), Julian ($171.000) y Cristopher ($382.000), con **interés 6% efectivo anual prorrateado por mes** (~0,49% mensual) por el tiempo que tarde la devolución.
 
 **Reglas de gastos futuros:**
 1. Gastos > $200.000 COP (o $50 USD) requieren aprobación de Santiago + 1 founder más.
 2. Todo gasto aprobado se registra en Notion (fecha, concepto, monto, quién pagó).
-3. Con caja suficiente (3+ meses de runway), se reembolsan en orden cronológico, sin intereses.
+3. Con caja suficiente (3+ meses de runway), se reembolsan en orden cronológico, sin intereses — excepto certificados de firma electrónica (firmapass.com), que se devuelven con interés 6% efectivo anual prorrateado por mes (~0,49% mensual).
 4. Aportes futuros > $5M COP de un socio para convertir en equity extra se negocian aparte con unanimidad.
 
 ---
@@ -79,8 +83,25 @@ Venta siempre intra-equipo primero:
 ### 4.3 Drag-along
 Holders del >70% pueden aprobar venta total de la empresa. Todos arrastran. Evita bloqueo por minoritario.
 
-### 4.4 Tag-along
-Si un founder vende a tercero, minoritarios pueden pegarse a la venta al mismo precio. Protege a Juan Camilo.
+### 4.4 Tag-along (derecho de acompañamiento)
+
+**Qué protege:** si un socio vende sus acciones a un tercero (comprador externo), los demás socios pueden pegarse a la venta: vender sus acciones al mismo precio y condiciones.
+
+**Por qué:** evita que un comprador externo entre comprando solo las acciones de un fundador y deje al resto atrapado con un socio desconocido. Protege sobre todo a Juan Camilo (6%) y a cualquier minoritario futuro (hires del ESOP).
+
+**Cómo funciona:**
+1. El socio vendedor notifica por escrito la oferta del tercero (precio por acción, identidad del comprador, condiciones de pago) con mínimo 30 días antes del cierre.
+2. Cada socio puede ejercer tag-along sobre el 100% de sus acciones vested, al mismo precio por acción y mismas condiciones.
+3. **Prorrateo:** si el comprador no adquiere el 100% de la empresa, vendedor y tag-along venden en proporción a sus % (ej. Santiago vende su 37%, Juan Camilo se pega vendiendo su 6% en la misma operación).
+4. **Cierre condicionado:** el vendedor solo puede cerrar si el comprador compra también las acciones de quienes ejercieron tag-along. Si el comprador no las toma, la venta no se concreta.
+
+**Orden con otras cláusulas:**
+- Primero ROFR (4.2): si el equipo compra, no hay venta externa y no aplica tag-along. Tag-along aplica solo a la venta externa que sobrevive al ROFR.
+- Si aplica drag-along (4.3, >70% aprueba venta total), el tag-along es irrelevante: la venta total ya incluye a todos.
+
+**Exclusiones:** no aplica a transferencias entre socios actuales, a filiales o vehículos del socio, emisiones del ESOP, prenda/garantía, ni herencia. El bad leaver (4.1) pierde el derecho a tag-along.
+
+**En Colombia (S.A.S.):** el pacto de accionistas es válido y obliga solo a los firmantes. Para que sea oponible a terceros compradores, registrar las restricciones de transferencia en los estatutos y anotarlas en el libro de accionistas. Incluir cláusula penal por incumplimiento.
 
 ### 4.5 Vesting acelerado (Double Trigger)
 Vesting acelera solo si hay adquisición Y despido. Single trigger asusta compradores.
@@ -181,4 +202,4 @@ Con distribución 37/27/25/6:
 
 ---
 
-*Extraído de `README.md` — defriction government strategy. Última revisión: 2026-07-22.*
+*Extraído de `README.md` — defriction government strategy. Última revisión: 2026-07-31.*
