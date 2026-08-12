@@ -49,12 +49,14 @@ Gastos ya realizados. Se registran en acta constitutiva como aportes de industri
 | Socio | Concepto | Total aprox COP |
 |---|---|---|
 | Santiago | VPS, Claude Code, Google Workspace | ~$1.715.000 |
-| Julian | Dominio defriction.org, Gemini | ~$832.000 |
+| Julian | Dominio defriction.org, Gemini, IA OpenCode + Hermes Agent, plan Claude Code | ~$1.044.500 |
 | Sneider | Infra / herramientas | ~$664.000 |
 | Julian | Certificados firma electrónica (firmapass.com) | $271.000 |
+| Julian | IA OpenCode + Hermes Agent | ~$127.500 |
+| Julian | Plan Claude Code (mensual, en curso) | ~$85.000 |
 | Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $282.000 |
 | Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 |
-| **Total** | | **~$3.491.000** |
+| **Total** | | **~$3.703.500** |
 
 TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma.
 

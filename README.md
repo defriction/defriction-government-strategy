@@ -600,12 +600,14 @@ Gastos ya hechos por socios para defriction. Se registran en acta constitutiva /
 | Julian | Dominio defriction.org | — | $12 | ~$51.000 |
 | Julian | Gemini | — | $120 | ~$510.000 |
 | Julian | Certificados firma electrónica (firmapass.com) | $271.000 | — | $271.000 |
-| **Julian total** | | | | **~$832.000** |
+| Julian | IA OpenCode + Hermes Agent | — | $30 | ~$127.500 |
+| Julian | Plan Claude Code (mensual, en curso) | — | $20 | ~$85.000 |
+| **Julian total** | | | | **~$1.044.500** |
 | Sneider | Infra / herramientas | — | $90 | ~$382.000 |
 | Cristopher (Sneider) | Certificados firma electrónica (firmapass.com) | $282.000 | — | $282.000 |
 | **Sneider total** | | | | **~$664.000** |
 | Juan Camilo | Certificados firma electrónica (firmapass.com) | $280.000 | — | $280.000 |
-| **Total aportado** | | | | **~$3.491.000 COP** |
+| **Total aportado** | | | | **~$3.703.500 COP** |
 
 *TRM referencia: $4.250 COP/USD. Actualizar con TRM real del día de firma del acta.
 
