@@ -1,9 +1,9 @@
 # Ranking de Contribuciones — defriction org
 
-Actualizado 2026-08-22 · 8 repos · GitHub API `stats/contributors`
+Actualizado 2026-08-22 · 7 repos · GitHub API `stats/contributors`
 
 
-**Commits totales en la org:** 2,351 · **Directos:** 1,001 · **IA (Claude Code):** 1,350 (57%)
+**Commits totales en la org:** 2,337 · **Directos:** 987 · **IA (Claude Code):** 1,350 (57%)
 
 > ℹ️ Commits de Claude Code redistribuidos con heurística: 90% Santiago, 5% Julian, 5% Sneider.
 > El autor/committer real de estos commits es `Claude <noreply@anthropic.com>` — no atribuible desde git. Ajustable en `CLAUDE_ATTRIBUTION` del script.
@@ -24,9 +24,9 @@ Actualizado 2026-08-22 · 8 repos · GitHub API `stats/contributors`
   <rect x="171" y="61" width="358" height="20" rx="4" fill="#3b82f6" opacity="0.35"/>
   <text x="538" y="76" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">1,271</text>
   <text x="147" y="108" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador B</text>
-  <rect x="155" y="93" width="202" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
-  <rect x="357" y="93" width="19" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
-  <text x="384" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">752</text>
+  <rect x="155" y="93" width="197" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
+  <rect x="352" y="93" width="19" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
+  <text x="380" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">738</text>
   <text x="147" y="140" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador C</text>
   <rect x="155" y="125" width="76" height="20" rx="4" fill="#10b981" opacity="0.85"/>
   <rect x="231" y="125" width="19" height="20" rx="4" fill="#10b981" opacity="0.35"/>
@@ -51,9 +51,9 @@ Actualizado 2026-08-22 · 8 repos · GitHub API `stats/contributors`
   <rect x="167" y="61" width="362" height="20" rx="4" fill="#3b82f6" opacity="0.35"/>
   <text x="538" y="76" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">428,368</text>
   <text x="147" y="108" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador B</text>
-  <rect x="155" y="93" width="144" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
-  <rect x="299" y="93" width="20" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
-  <text x="327" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">187,869</text>
+  <rect x="155" y="93" width="142" height="20" rx="4" fill="#8b5cf6" opacity="0.85"/>
+  <rect x="297" y="93" width="20" height="20" rx="4" fill="#8b5cf6" opacity="0.35"/>
+  <text x="326" y="108" fill="#8b5cf6" font-family="system-ui,sans-serif" font-size="12" font-weight="700">186,261</text>
   <text x="147" y="140" text-anchor="end" fill="#cbd5e1" font-family="system-ui,sans-serif" font-size="11">Colaborador C</text>
   <rect x="155" y="125" width="214" height="20" rx="4" fill="#10b981" opacity="0.85"/>
   <rect x="369" y="125" width="20" height="20" rx="4" fill="#10b981" opacity="0.35"/>
@@ -69,12 +69,12 @@ Actualizado 2026-08-22 · 8 repos · GitHub API `stats/contributors`
 | # | Colaborador | Total | Directos | IA | Barra | +Líneas | -Líneas | Net | Repos |
 |---|-----------|-------|----------|----|-------|--------|--------|-----|-------|
 | 1 | **Colaborador A** — santiagorodriguezg | 1,271 | 55 | 1,216 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="5" height="10" rx="0" fill="#8b5cf6" opacity="0.85"/><rect x="5" y="2" width="124" height="10" rx="0" fill="#8b5cf6" opacity="0.40"/></svg> | 428,368 | 60,407 | +367,961 | 4 |
-| 2 | **Colaborador B** — julianfrancodev | 752 | 685 | 67 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="70" height="10" rx="0" fill="#10b981" opacity="0.85"/><rect x="70" y="2" width="6" height="10" rx="0" fill="#10b981" opacity="0.40"/></svg> | 187,869 | 38,421 | +149,448 | 6 |
+| 2 | **Colaborador B** — julianfrancodev | 738 | 671 | 67 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="68" height="10" rx="0" fill="#10b981" opacity="0.85"/><rect x="68" y="2" width="6" height="10" rx="0" fill="#10b981" opacity="0.40"/></svg> | 186,261 | 38,149 | +148,112 | 5 |
 | 3 | **Colaborador C** — christopher-perezm | 327 | 260 | 67 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="26" height="10" rx="0" fill="#f59e0b" opacity="0.85"/><rect x="26" y="2" width="6" height="10" rx="0" fill="#f59e0b" opacity="0.40"/></svg> | 268,253 | 18,490 | +249,763 | 6 |
 | 4 | **Colaborador D** — juankmilo99 | 1 | 1 | 0 | <svg width="130" height="14" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="2" height="10" rx="0" fill="#ef4444" opacity="0.85"/><rect x="2" y="2" width="0" height="10" rx="0" fill="#ef4444" opacity="0.40"/></svg> | 1 | 1 | +0 | 1 |
 
 ## 🔍 Distribución por repo
 - **Colaborador A** (santiagorodriguezg) — 1271 commits (1216 IA), 4 repos: defriction-landing, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular
-- **Colaborador B** (julianfrancodev) — 752 commits (67 IA), 6 repos: bot-cobranzas-propiedades-horizontales, defriction-government-strategy, defriction-landing, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular
+- **Colaborador B** (julianfrancodev) — 738 commits (67 IA), 5 repos: bot-cobranzas-propiedades-horizontales, defriction-landing, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular
 - **Colaborador C** (christopher-perezm) — 327 commits (67 IA), 6 repos: defriction-landing, expense-tracker-bot-python, financial-platform, inventory-tracker-ia-billing-python, tennis-management-back-nestjs, tennis-management-front-angular
 - **Colaborador D** (juankmilo99) — 1 commits, 1 repos: tennis-management-front-angular
