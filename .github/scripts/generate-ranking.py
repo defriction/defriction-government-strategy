@@ -4,31 +4,30 @@ import json, subprocess, os, re, tempfile, shutil
 from datetime import date
 from collections import defaultdict
 
-from typing import List
+def gh_api(endpoint):
+    r = subprocess.run(["gh", "api", endpoint], capture_output=True, text=True, timeout=60)
+    if r.returncode != 0:
+        return None
+    try:
+        return json.loads(r.stdout)
+    except:
+        return None
 
-def list_org_repos(org: str) -> List[str]:
-    """Return a list of ``owner/repo`` strings for all repositories in *org*.
-    Uses the GitHub CLI ``gh api`` endpoint ``orgs/{org}/repos`` with pagination.
-    Excludes the repository where this script runs (identified via ``GITHUB_REPOSITORY`` env var).
-    """
-    repos: List[str] = []
-    page = 1
-    while True:
-        data = gh_api(f"orgs/{org}/repos?per_page=100&page={page}")
-        if not data:
-            break
-        repos.extend([repo["full_name"] for repo in data if isinstance(repo, dict)])
-        if len(data) < 100:
-            break
-        page += 1
-    # Remove the current repository (if present) to avoid self‑counting
-    current = os.getenv("GITHUB_REPOSITORY")
-    if current:
-        repos = [r for r in repos if r != current]
-    return repos
+REPOS = [
+    "defriction/gravamenex",
+    "defriction/tennis-management-front-angular",
+    "defriction/stocksify-tracker-inventory-ia-billing-python",
+    "defriction/transversal-services",
+    "defriction/corpropilot-gestion-propiedades-horizontales",
+    "defriction/tennis-management-back-nestjs",
+    "defriction/vetpethub-monorepo-nextjs-go",
+    "defriction/gravamenex-landing",
+    "defriction/defriction-landing",
+    "defriction/financial-platform",
+    "defriction/expense-tracker-bot-python",
+    "defriction/bot-cobranzas-propiedades-horizontales",
+]
 
-# Dynamically fetch all repos in the organization (excluding this one)
-REPOS = list_org_repos("defriction")
 
 BOTS = {"astrobot-houston", "dependabot[bot]", "dependabot", "renovate[bot]"}
 COLORS = ["#3b82f6", "#8b5cf6", "#10b981", "#f59e0b", "#ef4444", "#ec4899", "#06b6d4"]
