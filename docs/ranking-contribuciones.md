@@ -1,6 +1,6 @@
 # Ranking de Contribuciones — defriction org
 
-Actualizado 2026-10-07 · 12 repos · GitHub API `stats/contributors`
+Actualizado 2026-10-08 · 12 repos · GitHub API `stats/contributors`
 
 
 **Commits totales en la org:** 4,857 · **Directos:** 2,837 · **IA (Claude Code):** 2,020 (41%)
