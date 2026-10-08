@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
 """Genera docs/ranking-contribuciones.md — incluye Claude Code como fila IA separada."""
-import json, subprocess, os, re, tempfile, shutil
+import json, subprocess, os, re, tempfile, shutil, time
 from datetime import date
 from collections import defaultdict
-
-def gh_api(endpoint):
-    r = subprocess.run(["gh", "api", endpoint], capture_output=True, text=True, timeout=60)
-    if r.returncode != 0:
-        return None
-    try:
-        return json.loads(r.stdout)
-    except:
-        return None
 
 REPOS = [
     "defriction/gravamenex",
@@ -34,13 +25,19 @@ COLORS = ["#3b82f6", "#8b5cf6", "#10b981", "#f59e0b", "#ef4444", "#ec4899", "#06
 
 
 def gh_api(endpoint):
-    r = subprocess.run(["gh", "api", endpoint], capture_output=True, text=True, timeout=60)
-    if r.returncode != 0:
-        return None
-    try:
-        return json.loads(r.stdout)
-    except:
-        return None
+    for _ in range(5):
+        r = subprocess.run(["gh", "api", endpoint], capture_output=True, text=True, timeout=60)
+        if r.returncode == 0:
+            try:
+                data = json.loads(r.stdout)
+                if isinstance(data, list) and len(data) > 0:
+                    return data
+                if isinstance(data, dict) and data:
+                    return data
+            except:
+                pass
+        time.sleep(2)
+    return None
 
 
 CLAUDE_AUTHOR_RE = re.compile(r'^claude', re.IGNORECASE)
@@ -122,42 +119,11 @@ def generate_bar_svg(items, title, value_key, width=650):
     return svg
 
 
-# Manual attribution of Claude Code commits (90% Santiago, 5% Julian, 5% Sneider)
-CLAUDE_ATTRIBUTION = {
-    "santiagorodriguezg": 0.90,   # Santiago
-    "julianfrancodev":   0.05,   # Julian
-    "christopher-perezm": 0.05,  # Sneider
-}
-
-
-def redistribute_claude(claude_stats):
-    """Redistribute Claude commits/lines to humans per CLAUDE_ATTRIBUTION."""
-    result = {}
-    total_commits = claude_stats["commits"]
-    total_adds = claude_stats["additions"]
-    total_dels = claude_stats["deletions"]
-    claude_repos = claude_stats["repos"]
-
-    for login, pct in CLAUDE_ATTRIBUTION.items():
-        result[login] = {
-            "commits_ai": int(total_commits * pct),
-            "additions_ai": int(total_adds * pct),
-            "deletions_ai": int(total_dels * pct),
-            "repos_ai": claude_repos,
-        }
-
-    # Assign any rounding remainder to Santiago
-    assigned_commits = sum(v["commits_ai"] for v in result.values())
-    assigned_adds = sum(v["additions_ai"] for v in result.values())
-    assigned_dels = sum(v["deletions_ai"] for v in result.values())
-    if assigned_commits < total_commits:
-        result["santiagorodriguezg"]["commits_ai"] += total_commits - assigned_commits
-    if assigned_adds < total_adds:
-        result["santiagorodriguezg"]["additions_ai"] += total_adds - assigned_adds
-    if assigned_dels < total_dels:
-        result["santiagorodriguezg"]["deletions_ai"] += total_dels - assigned_dels
-
-    return result
+def get_ai_target_user(repo):
+    """Determina a quién se atribuyen los commits de IA según el contexto del repositorio."""
+    if "tennis" in repo.lower() or "tenis" in repo.lower():
+        return "santiagorodriguezg"
+    return "julianfrancodev"
 
 
 def main():
@@ -186,6 +152,19 @@ def main():
                 claude_agg["additions"] += adds
                 claude_agg["deletions"] += dels
                 claude_agg["repos"].add(repo)
+
+                ai_target = get_ai_target_user(repo)
+                if ai_target not in aggregated:
+                    aggregated[ai_target] = {
+                        "commits": 0, "commits_ai": 0,
+                        "additions": 0, "additions_ai": 0,
+                        "deletions": 0, "deletions_ai": 0,
+                        "repos": set(), "repos_ai": set(),
+                    }
+                aggregated[ai_target]["commits_ai"] += commits
+                aggregated[ai_target]["additions_ai"] += adds
+                aggregated[ai_target]["deletions_ai"] += dels
+                aggregated[ai_target]["repos_ai"].add(repo)
             else:
                 if login not in aggregated:
                     aggregated[login] = {
@@ -198,22 +177,6 @@ def main():
                 aggregated[login]["additions"] += adds
                 aggregated[login]["deletions"] += dels
                 aggregated[login]["repos"].add(repo)
-
-    # Phase 2: redistribute Claude to humans
-    if claude_agg["commits"] > 0:
-        claude_redist = redistribute_claude(claude_agg)
-        for login, ai_st in claude_redist.items():
-            if login not in aggregated:
-                aggregated[login] = {
-                    "commits": 0, "commits_ai": 0,
-                    "additions": 0, "additions_ai": 0,
-                    "deletions": 0, "deletions_ai": 0,
-                    "repos": set(), "repos_ai": set(),
-                }
-            aggregated[login]["commits_ai"] += ai_st["commits_ai"]
-            aggregated[login]["additions_ai"] += ai_st["additions_ai"]
-            aggregated[login]["deletions_ai"] += ai_st["deletions_ai"]
-            aggregated[login]["repos_ai"] |= ai_st["repos_ai"]
 
     # Build total = direct + AI
     for login, st in aggregated.items():
@@ -253,9 +216,6 @@ def main():
         f"Actualizado {today} · {len(repo_ok)} repos · GitHub API `stats/contributors`\n",
         "",
         f"**Commits totales en la org:** {total_all:,} · **Directos:** {total_human:,} · **IA (Claude Code):** {total_ai:,} ({pct_ai}%)",
-        "",
-        f"> ℹ️ Commits de Claude Code redistribuidos con heurística: 90% Santiago, 5% Julian, 5% Sneider.",
-        f"> El autor/committer real de estos commits es `Claude <noreply@anthropic.com>` — no atribuible desde git. Ajustable en `CLAUDE_ATTRIBUTION` del script.",
         "",
         "---\n",
         "## 📊 Commits\n",
