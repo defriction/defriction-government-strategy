@@ -119,9 +119,19 @@ def generate_bar_svg(items, title, value_key, width=650):
     return svg
 
 
+USER_ALIASES = {
+    "sneider-perez": "christopher-perezm",
+    "qwencoder": "julianfrancodev",
+}
+
+
+def is_tennis_repo(repo):
+    return "tennis" in repo.lower() or "tenis" in repo.lower()
+
+
 def get_ai_target_user(repo):
     """Determina a quién se atribuyen los commits de IA según el contexto del repositorio."""
-    if "tennis" in repo.lower() or "tenis" in repo.lower():
+    if is_tennis_repo(repo):
         return "santiagorodriguezg"
     return "julianfrancodev"
 
@@ -166,17 +176,21 @@ def main():
                 aggregated[ai_target]["deletions_ai"] += dels
                 aggregated[ai_target]["repos_ai"].add(repo)
             else:
-                if login not in aggregated:
-                    aggregated[login] = {
+                actual_login = USER_ALIASES.get(login, login)
+                if actual_login == "santiagorodriguezg" and not is_tennis_repo(repo):
+                    actual_login = "christopher-perezm"
+
+                if actual_login not in aggregated:
+                    aggregated[actual_login] = {
                         "commits": 0, "commits_ai": 0,
                         "additions": 0, "additions_ai": 0,
                         "deletions": 0, "deletions_ai": 0,
                         "repos": set(), "repos_ai": set(),
                     }
-                aggregated[login]["commits"] += commits
-                aggregated[login]["additions"] += adds
-                aggregated[login]["deletions"] += dels
-                aggregated[login]["repos"].add(repo)
+                aggregated[actual_login]["commits"] += commits
+                aggregated[actual_login]["additions"] += adds
+                aggregated[actual_login]["deletions"] += dels
+                aggregated[actual_login]["repos"].add(repo)
 
     # Build total = direct + AI
     for login, st in aggregated.items():
